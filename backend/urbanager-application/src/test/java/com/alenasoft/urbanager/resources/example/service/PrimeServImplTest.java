@@ -42,4 +42,8 @@ public class PrimeServImplTest {
         assertFalse(primeServ.numberIntegerIsPrime(negativeNumber));
     }
 
+    @Test
+    public void testNumberIntegerIsPrimeIfIntegerIsOneReturnFalse(){
+        assertFalse(primeServ.numberIntegerIsPrime(1));
+    }
 }
