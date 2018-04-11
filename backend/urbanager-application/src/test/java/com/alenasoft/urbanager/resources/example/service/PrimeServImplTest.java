@@ -1,5 +1,6 @@
 package com.alenasoft.urbanager.resources.example.service;
 
+import com.alenasoft.urbanager.resources.example.service.Implementation.PrimeServImpl;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,7 +24,7 @@ public class PrimeServImplTest {
 
 
     @Test
-    public void testIfIntegerNumberIsPrimeReturnTrue() throws Exception{
+    public void testNumberIntegerIsPrimeIfIntegerNumberIsPrimeReturnTrue() throws Exception{
         int primeNumber = 7;
         assertTrue(primeServ.numberIntegerIsPrime(primeNumber));
     }
