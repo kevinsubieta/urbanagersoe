@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 
@@ -27,6 +28,12 @@ public class PrimeServImplTest {
     public void testNumberIntegerIsPrimeIfIntegerNumberIsPrimeReturnTrue() throws Exception{
         int primeNumber = 7;
         assertTrue(primeServ.numberIntegerIsPrime(primeNumber));
+    }
+
+    @Test
+    public void testNumberIntegerIsPrimeIfIntegerNumberIsNotPrimeReturnFalse() {
+        int notPrimeNumber = 4;
+        assertFalse(primeServ.numberIntegerIsPrime(notPrimeNumber));
     }
 
 }
