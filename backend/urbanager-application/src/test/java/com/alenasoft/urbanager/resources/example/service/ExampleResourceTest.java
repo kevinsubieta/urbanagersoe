@@ -1,4 +1,4 @@
-package com.alenasoft.urbanager.resources.example;
+package com.alenasoft.urbanager.resources.example.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
