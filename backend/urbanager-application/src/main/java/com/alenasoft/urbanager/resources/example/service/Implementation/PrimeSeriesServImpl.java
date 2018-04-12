@@ -1,8 +1,8 @@
 package com.alenasoft.urbanager.resources.example.service.Implementation;
 
-public class PrimeSeriesServImpl {
+import com.alenasoft.urbanager.resources.example.service.Interfaces.PrimeSeriesServ;
 
-
+public class PrimeSeriesServImpl implements PrimeSeriesServ {
     public int[] getNFirstNumberPrimeSeries(int primeNumberToGenerate) {
         if (primeNumberToGenerate < 0) return new int[0];
         int[] list = new int[primeNumberToGenerate];

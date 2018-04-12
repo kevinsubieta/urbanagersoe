@@ -1,9 +1,11 @@
 package com.alenasoft.urbanager.core.modules;
 
 import com.alenasoft.urbanager.UrbanagerConf;
+import com.alenasoft.urbanager.resources.example.service.Implementation.PrimeSeriesServImpl;
 import com.alenasoft.urbanager.resources.example.service.Implementation.PrimeServImpl;
 import com.alenasoft.urbanager.resources.example.service.Interfaces.ExampleService;
 import com.alenasoft.urbanager.resources.example.service.Implementation.ExampleServiceImpl;
+import com.alenasoft.urbanager.resources.example.service.Interfaces.PrimeSeriesServ;
 import com.alenasoft.urbanager.resources.example.service.Interfaces.PrimeServ;
 import com.alenasoft.urbanager.resources.example.service.Interfaces.SumService;
 import com.alenasoft.urbanager.resources.example.service.Implementation.SumServiceImpl;
@@ -21,5 +23,6 @@ public class MainModule extends DropwizardAwareModule<UrbanagerConf> {
     bind(ExampleService.class).to(ExampleServiceImpl.class);
     bind(SumService.class).to(SumServiceImpl.class);
     bind(PrimeServ.class).to(PrimeServImpl.class);
+    bind(PrimeSeriesServ.class).to(PrimeSeriesServImpl.class);
   }
 }

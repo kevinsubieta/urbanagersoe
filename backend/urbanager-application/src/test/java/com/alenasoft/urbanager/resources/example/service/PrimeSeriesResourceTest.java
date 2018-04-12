@@ -2,16 +2,16 @@ package com.alenasoft.urbanager.resources.example.service;
 
 import com.alenasoft.urbanager.UrbanagerApp;
 import com.alenasoft.urbanager.UrbanagerConf;
+import com.google.common.primitives.Ints;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.sun.xml.internal.xsom.impl.scd.Iterators;
 import io.dropwizard.client.JerseyClientBuilder;
 import io.dropwizard.testing.ResourceHelpers;
 import io.dropwizard.testing.junit.DropwizardAppRule;
 import org.junit.*;
 
 import javax.ws.rs.client.Client;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 
@@ -40,18 +40,19 @@ public class PrimeSeriesResourceTest {
     @Test
     public void testGetNFirstNumberPrimeSeriesGivenThreeReturnArrayWithTwoThreeFive() {
         int primerNumber = 3;
-        int[] expectedPrimeArray = {2,3,5};
+        int[] expectedPrimeArray = {2, 3, 5};
 
         String pathUrl = String.
-                format("http://localhost:%s/api/primo?",
+                format("http://localhost:%s/api/primo?limite=%s",
                         RULE.getLocalPort(), primerNumber);
 
         String response = this.client.
                 target(pathUrl).request().get().
                 readEntity(String.class);
 
-        int[] responseArray = new Gson().fromJson(response,new TypeToken<Iterators.Array<Integer>>() {}.getType());
-        Assert.assertEquals(responseArray, expectedPrimeArray);
+           int[] responseArray = Ints.toArray(new Gson().fromJson(response,
+                   new TypeToken<List<Integer>>(){}.getType()));
+        Assert.assertArrayEquals(responseArray, expectedPrimeArray);
     }
 
 }
