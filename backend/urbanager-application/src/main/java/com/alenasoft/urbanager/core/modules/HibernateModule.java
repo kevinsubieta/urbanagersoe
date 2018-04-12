@@ -1,9 +1,11 @@
 package com.alenasoft.urbanager.core.modules;
 
 import com.alenasoft.urbanager.UrbanagerConf;
-import com.alenasoft.urbanager.resources.example.dao.interfaces.ExampleDao;
 import com.alenasoft.urbanager.resources.example.dao.implementation.ExampleDaoImpl;
 import com.alenasoft.urbanager.resources.example.dao.implementation.ResultDaoImpl;
+import com.alenasoft.urbanager.resources.example.dao.interfaces.ExampleDao;
+import com.alenasoft.urbanager.resources.example.service.Implementation.PrimeServImpl;
+import com.alenasoft.urbanager.resources.example.service.Interfaces.PrimeServ;
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import io.dropwizard.hibernate.HibernateBundle;
@@ -16,23 +18,25 @@ import io.dropwizard.hibernate.HibernateBundle;
  */
 public class HibernateModule extends AbstractModule {
 
-  private final HibernateBundle<UrbanagerConf> hibernate;
+    private final HibernateBundle<UrbanagerConf> hibernate;
 
-  public HibernateModule(HibernateBundle<UrbanagerConf> hibernate) {
-    this.hibernate = hibernate;
-  }
+    public HibernateModule(HibernateBundle<UrbanagerConf> hibernate) {
+        this.hibernate = hibernate;
+    }
 
-  @Override
-  protected void configure() { }
+    @Override
+    protected void configure() {
+    }
 
-  @Provides
-  public ExampleDao providesCustomerDao(UrbanagerConf configuration) {
-    return new ExampleDaoImpl(this.hibernate.getSessionFactory());
-  }
+    @Provides
+    public ExampleDao providesCustomerDao(UrbanagerConf configuration) {
+        return new ExampleDaoImpl(this.hibernate.getSessionFactory());
+    }
 
-  @Provides
-  public ResultDaoImpl providesResultDao(UrbanagerConf configuration) {
-    return new ResultDaoImpl(this.hibernate.getSessionFactory());
-  }
+    @Provides
+    public ResultDaoImpl providesResultDao(UrbanagerConf configuration) {
+        return new ResultDaoImpl(this.hibernate.getSessionFactory());
+    }
+
 }
 

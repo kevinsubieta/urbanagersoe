@@ -2,7 +2,6 @@ package com.alenasoft.urbanager.resources.example.service;
 
 import com.alenasoft.urbanager.UrbanagerApp;
 import com.alenasoft.urbanager.UrbanagerConf;
-import com.alenasoft.urbanager.resources.example.service.Implementation.PrimeServImpl;
 import io.dropwizard.client.JerseyClientBuilder;
 import io.dropwizard.testing.ResourceHelpers;
 import io.dropwizard.testing.junit.DropwizardAppRule;
@@ -11,9 +10,6 @@ import org.junit.*;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.core.Response;
 import java.util.Random;
-
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 
 public class PrimeResourceTest {
@@ -38,17 +34,19 @@ public class PrimeResourceTest {
         this.client = null;
     }
 
-
     @Test
-    public void testIsPrimeIntegerNumberReturnOk(){
+    public void testIsPrimeIntegerNumberReturnOk() {
         String expectedResponse = "OK";
         int primerNumber = 7;
 
-        String pathUrl = String.format(String.format("http://localhost:%s/primo/%s",
-                RULE.getLocalPort(),primerNumber));
+        String pathUrl = String.
+                format("http://localhost:%s/api/primo/%s",
+                        RULE.getLocalPort(), primerNumber);
 
-        Response response = this.client.target(pathUrl).request().get();
-        Assert.assertEquals(response.getEntity(),expectedResponse);
+        String response = this.client.
+                target(pathUrl).request().get().
+                readEntity(String.class);
+        Assert.assertEquals(response, expectedResponse);
     }
 
 }

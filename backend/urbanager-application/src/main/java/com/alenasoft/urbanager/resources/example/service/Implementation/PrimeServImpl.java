@@ -1,6 +1,8 @@
 package com.alenasoft.urbanager.resources.example.service.Implementation;
 
-public class PrimeServImpl {
+import com.alenasoft.urbanager.resources.example.service.Interfaces.PrimeServ;
+
+public class PrimeServImpl implements PrimeServ {
     public boolean numberIntegerIsPrime(int primeNumber) {
         if (primeNumber <= 1)
             return false;
