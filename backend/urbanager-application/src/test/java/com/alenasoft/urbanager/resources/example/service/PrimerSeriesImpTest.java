@@ -1,5 +1,6 @@
 package com.alenasoft.urbanager.resources.example.service;
 
+import com.alenasoft.urbanager.resources.example.service.Implementation.PrimeSeriesServImpl;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
