@@ -49,4 +49,19 @@ public class PrimeResourceTest {
         Assert.assertEquals(response, expectedResponse);
     }
 
+    @Test
+    public void testPrimoUrlIfIntegerIsNotPrimeReturnFail() {
+        String expectedResponse = "FAIL";
+        int primerNumber = 4;
+
+        String pathUrl = String.
+                format("http://localhost:%s/api/primo/%s",
+                        RULE.getLocalPort(), primerNumber);
+
+        String response = this.client.
+                target(pathUrl).request().get().
+                readEntity(String.class);
+        Assert.assertEquals(response, expectedResponse);
+    }
+
 }
