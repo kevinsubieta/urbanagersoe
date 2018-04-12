@@ -27,4 +27,11 @@ public class PrimerSeriesImpTest {
         Assert.assertArrayEquals(primeSeriesServImpl.getNFirstNumberPrimeSeries(primeNumberToGenerate), expectedPrimeArray);
     }
 
+    @Test
+    public void testGetNFirstNumberPrimeSeriesGivenNegativeNumberReturnEmptyList(){
+        int primeNumberToGenerate = -1;
+        int[] expectedPrimeArray = {};
+        Assert.assertArrayEquals(primeSeriesServImpl.getNFirstNumberPrimeSeries(primeNumberToGenerate), expectedPrimeArray);
+    }
+
 }
